@@ -1,11 +1,10 @@
 const axios = require('axios');
 const fs = require('fs');
 const csv = require('fast-csv');
-
-const API_KEY = 'ef797ea4b42736f79847ea781e8f7955';
+require('dotenv').config();
 
 let city = 'dallas';
-const url = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`;
+const url = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${process.env.API_KEY}&units=metric`;
 
 const getCurrentWeather = async (url) => {
   try {
